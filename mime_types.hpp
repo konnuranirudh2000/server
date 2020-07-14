@@ -1,6 +1,6 @@
 //
-// request.hpp
-// ~~~~~~~~~~~
+// mime_types.hpp
+// ~~~~~~~~~~~~~~
 //
 // Copyright (c) 2003-2011 Christopher M. Kohlhoff (chris at kohlhoff dot com)
 //
@@ -8,27 +8,20 @@
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
 
-#ifndef HTTP_REQUEST_HPP
-#define HTTP_REQUEST_HPP
+#ifndef HTTP_MIME_TYPES_HPP
+#define HTTP_MIME_TYPES_HPP
 
 #include <string>
-#include <vector>
-#include "header.hpp"
 
 namespace http {
 namespace server {
+namespace mime_types {
 
-/// A request received from a client.
-struct request
-{
-  std::string method;
-  std::string uri;
-  int http_version_major;
-  int http_version_minor;
-  std::vector<header> headers;
-};
+/// Convert a file extension into a MIME type.
+std::string extension_to_type(const std::string& extension);
 
+} // namespace mime_types
 } // namespace server
 } // namespace http
 
-#endif // HTTP_REQUEST_HPP
+#endif // HTTP_MIME_TYPES_HPP
